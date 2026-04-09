@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Just One Question 💙</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial;
+      background: #d0f0ff;
+      padding-top: 50px;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #0077b6;
+      font-size: 40px;
+    }
+
+    img {
+      width: 200px;
+      margin: 20px;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 12px 25px;
+      margin: 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    #yes {
+      background-color: #0077b6;
+      color: white;
+    }
+
+    #no {
+      background-color: #90caf9;
+      color: white;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Do you miss me? 💙😘</h1>
+
+  <!-- GIF -->
+  <img src="missing-you.gif" alt="Missing you">
+
+  <br>
+
+  <button id="yes" onclick="showLove()">Yes 🥰</button>
+  <button id="no" onmouseover="moveButton()">No 🫣</button>
+
+  <!-- Audio element WITHOUT autoplay -->
+  <audio id="bg-music" loop>
+    <source src="The 1975 - About You (Official).mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function showLove() {
+      // Play music when Yes clicked
+      const music = document.getElementById('bg-music');
+      music.play();
+
+      // Change content
+      document.body.innerHTML = `
+        <h1>I miss you more 💙🥰</h1>
+        <img src="happy-janmashtami.gif" width="200">
+      `;
+    }
+
+    function moveButton() {
+      const btn = document.getElementById("no");
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      btn.style.left = x + "px";
+      btn.style.top = y + "px";
+    }
+  </script>
+
+</body>
+</html>
