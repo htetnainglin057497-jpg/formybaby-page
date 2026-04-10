@@ -46,41 +46,63 @@
 
   <h1>Do you miss me? 💙😘</h1>
 
-  <!-- GIF -->
-  <img src="https://media.tenor.com/kBV_1Td-2kgAAAAi/mocha-milk.gif" alt="Missing you">
+  <img src="https://media.tenor.com/kBV_1Td-2kgAAAAi/mocha-milk.gif">
 
   <br>
 
   <button id="yes" onclick="showLove()">Yes 🥰</button>
   <button id="no" onmouseover="moveButton()">No 🫣</button>
 
-  <!-- Audio element WITHOUT autoplay -->
   <audio id="bg-music" loop>
     <source src="The 1975 - About You (Official).mp3" type="audio/mpeg">
   </audio>
 
-  <script>
-  function showLove() {
-    // Change content + add audio controls
-    document.body.innerHTML = `
-      <h1>I miss you more 💙🥰</h1>
-      <img src="https://media1.tenor.com/m/1sllEEYLrrAAAAAC/happy-janmashtami.gif" width="200"><br><br>
-      
-      <audio id="bg-music" controls autoplay>
-        <source src="The 1975 - About You (Official).mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    `;
-  }
+<script>
+function showLove() {
+  // Change content
+  document.body.innerHTML = `
+    <h1>I miss you more 💙🥰</h1>
+    <img src="https://media1.tenor.com/m/1sllEEYLrrAAAAAC/happy-janmashtami.gif" width="200"><br><br>
 
-  function moveButton() {
-    const btn = document.getElementById("no");
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 50);
-    btn.style.left = x + "px";
-    btn.style.top = y + "px";
-  }
-  </script>
+    <audio controls autoplay loop>
+      <source src="The 1975 - About You (Official).mp3" type="audio/mpeg">
+    </audio>
+  `;
+
+  // Floating hearts start AFTER clicking Yes
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.innerHTML = "💙";
+    heart.style.position = "fixed";
+    heart.style.bottom = "-10px";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
+    heart.style.animation = "floatUp 5s linear";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 5000);
+  }, 300);
+
+  // animation style
+  const style = document.createElement("style");
+  style.innerHTML = `
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+function moveButton() {
+  const btn = document.getElementById("no");
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
+}
+</script>
 
 </body>
 </html>
