@@ -47,7 +47,7 @@
   <h1>Do you miss me? 💙😘</h1>
 
   <!-- GIF -->
-  <img src="missing-you.gif" alt="Missing you">
+  <img src="https://media.tenor.com/kBV_1Td-2kgAAAAi/mocha-milk.gif" alt="Missing you">
 
   <br>
 
@@ -60,25 +60,26 @@
   </audio>
 
   <script>
-    function showLove() {
-      // Play music when Yes clicked
-      const music = document.getElementById('bg-music');
-      music.play();
+  function showLove() {
+    // Change content + add audio controls
+    document.body.innerHTML = `
+      <h1>I miss you more 💙🥰</h1>
+      <img src="https://media1.tenor.com/m/1sllEEYLrrAAAAAC/happy-janmashtami.gif" width="200"><br><br>
+      
+      <audio id="bg-music" controls autoplay>
+        <source src="The 1975 - About You (Official).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    `;
+  }
 
-      // Change content
-      document.body.innerHTML = `
-        <h1>I miss you more 💙🥰</h1>
-        <img src="happy-janmashtami.gif" width="200">
-      `;
-    }
-
-    function moveButton() {
-      const btn = document.getElementById("no");
-      const x = Math.random() * (window.innerWidth - 100);
-      const y = Math.random() * (window.innerHeight - 50);
-      btn.style.left = x + "px";
-      btn.style.top = y + "px";
-    }
+  function moveButton() {
+    const btn = document.getElementById("no");
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+  }
   </script>
 
 </body>
